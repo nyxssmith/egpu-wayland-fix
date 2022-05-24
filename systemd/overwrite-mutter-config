@@ -1,0 +1,5 @@
+#!/bin/bash
+
+echo ENV{DEVNAME}==\"/dev/dri/$(ls -la /dev/dri/by-path | grep $(lspci | grep AMD | grep 6700 | cut -d' ' -f1) | grep card | cut -d'>' -f2 | cut -d'/' -f2)\", TAG+=\"mutter-device-preferred-primary\" > /usr/lib/udev/rules.d/61-mutter-primary-gpu.rules
+
+echo "updated mutter, youre welcome" > /tmp/debug
